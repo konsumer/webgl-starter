@@ -1,0 +1,35 @@
+{
+  "name": "webgl-starter",
+  "version": "0.0.1",
+  "description": "A simple browserify quickstart",
+  "scripts": {
+    "start": "beefy app/index.js:app.js --cwd webroot --open --index=webroot/index.html --live",
+    "build": "browserify app/index.js -o webroot/app.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konsumer/webgl-starter.git"
+  },
+  "author": "David Konsumer <konsumer@jetboystudio.com>",
+  "bugs": {
+    "url": "https://github.com/konsumer/webgl-starter/issues"
+  },
+  "homepage": "https://github.com/konsumer/webgl-starter#readme",
+  "browserify": {
+    "transform": [
+      "glslify",
+      "brfs"
+    ]
+  },
+  "devDependencies": {
+    "beefy": "^2.1.5",
+    "brfs": "^1.4.3",
+    "browserify": "^13.0.0",
+    "glsl-checker": "^1.0.1",
+    "glsl-halftone": "^1.0.4",
+    "glsl-hash-blur": "^1.0.3",
+    "glslify": "^5.0.2",
+    "three": "^0.74.0",
+    "three-orbit-viewer": "^69.3.0"
+  }
+}
