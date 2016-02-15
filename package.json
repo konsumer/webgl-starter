@@ -4,7 +4,9 @@
   "description": "A simple browserify quickstart",
   "scripts": {
     "start": "beefy app/index.js:app.js --cwd webroot --open --index=webroot/index.html --live",
-    "build": "browserify app/index.js -o webroot/app.js "
+    "build": "browserify app/index.js -o webroot/app.js",
+    "deploy": "gh-pages-deploy",
+    "clean-source": "rimraf README.md app webroot package.json"
   },
   "repository": {
     "type": "git",
@@ -25,11 +27,23 @@
     "beefy": "^2.1.5",
     "brfs": "^1.4.3",
     "browserify": "^13.0.0",
+    "gh-pages-deploy": "^0.4.0",
     "glsl-checker": "^1.0.1",
     "glsl-halftone": "^1.0.4",
     "glsl-hash-blur": "^1.0.3",
     "glslify": "^5.0.2",
+    "rimraf": "^2.5.2",
     "three": "^0.74.0",
     "three-orbit-viewer": "^69.3.0"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "webroot",
+    "prep": [
+      "build"
+    ],
+    "post": [
+      "clean-source"
+    ],
+    "noprompt": false
   }
 }
